@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.create_song') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a song</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.release_date.label }}
+        {{ form.release_data(placeholder="YYYY-mm-dd") }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.artist.label }}
+        {{ form.artist }}
+        <ul>
+        {% for error in form.artist.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.genre.label }}
+        {{ form.genre }}
+        <ul>
+        {% for error in form.genre.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.albums.label }}
+        {{ form.albums }}
+        <ul>
+        {% for error in form.albums.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

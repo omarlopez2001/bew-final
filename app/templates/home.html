@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Songs</h2>
+
+<ul>
+{% for song in all_songs %}
+    <li><a href="/song/{{ song.id }}">{{ song.title }}</a> by {{ song.artist.name }}</li>
+{% endfor %}
+</ul>
+
+<h2>Users</h2>
+
+<p>
+    <a href="/create_user">+ New User</a>
+</p>
+
+<ul>
+    {% for user in all_users %}
+        <li><a href="/profile/{{ user.username }}">{{ user.username }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

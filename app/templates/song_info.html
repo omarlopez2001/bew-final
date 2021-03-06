@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ song.title }}</h1>
+
+{% if current_user.is_authenticated %}
+    {% if song not in current_user.favorite_songs %}
+    <form action="/favorite/{{ song.id }}" method="POST">
+        <input type="submit" value="Add song to Favorites">
+    </form>
+    {% else %}
+    <form action="/unfavorite/{{ song.id }}" method="POST">
+        <input type="submit" value="Remove song from Favorites">
+    </form>
+    {% endif %}
+{% endif %}
+
+<p>
+    <strong>Artist</strong>: {{ song.artist.name }}
+</p>
+
+<p>
+    <strong>Artist description</strong>: {{ song.artist.description }}
+</p>
+
+{% if song.release_data %}
+<p>
+    <strong>Release Date</strong>: {{ song.release_date.strftime('%B %d, %Y') }}
+</p>
+{% endif %}
+
+<p>
+    <strong>Genre</strong>: {{ song.genre }}
+</p>
+
+<p>
+    <strong>Albums</strong>: 
+    
+    {% for album in song.albums %}
+    {{ album.name }},
+    {% endfor %}
+</p>
+
+<form method="POST" action="{{ url_for('main.song_info', song_id=song.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this song</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        
+        {{ form.release_date.label }}
+        {{ form.release_date(placeholder="YYYY-mm-dd") }}
+        
+        {{ form.artist.label }}
+        {{ form.artist }}
+        
+        {{ form.genre.label }}
+        {{ form.genre }}
+        
+        {{ form.albums.label }}
+        {{ form.albums }}
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
