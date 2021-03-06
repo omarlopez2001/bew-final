@@ -1,11 +1,11 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import date, datetime
-from song_app.models import Song, Artist, Album, User
-from song_app.main.forms import SongForm, ArtistForm, AlbumForm
-from song_app import bcrypt
+from songs_app.models import Song, Artist, Album, User
+from songs_app.main.forms import SongForm, ArtistForm, AlbumForm
+from songs_app import bcrypt
 
-from song_app import app, db
+from songs_app import app, db
 
 main = Blueprint('main', __name__)
 

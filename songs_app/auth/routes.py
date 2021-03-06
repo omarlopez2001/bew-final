@@ -1,11 +1,11 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 
-from song_app.models import Song, Artist, Album, User
-from song_app.auth.forms import SignUpForm, LoginForm
-from song_app import bcrypt
+from songs_app.models import Song, Artist, Album, User
+from songs_app.auth.forms import SignUpForm, LoginForm
+from songs_app import bcrypt
 
-from song_app import app, db
+from songs_app import app, db
 
 auth = Blueprint('auth', __name__)
 
