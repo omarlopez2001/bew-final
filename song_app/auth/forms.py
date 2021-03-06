@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
-from app.models import User
-from app import bcrypt
+from song_app.models import User
+from song_app import bcrypt
 
 class SignUpForm(FlaskForm):
     username = StringField('User Name',

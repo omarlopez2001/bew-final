@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, DateField, SelectField, SubmitField, TextAreaField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField, QuerySelectMultipleField
 from wtforms.validators import DataRequired, Length, ValidationError
-from app.models import Genre, Song, Artist, Album, User
+from song_app.models import Genre, Song, Artist, Album, User
 
 class SongForm(FlaskForm):
     """Form to create a song"""
