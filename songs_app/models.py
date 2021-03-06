@@ -23,7 +23,7 @@ class Song(db.Model):
     """Song model"""
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
-    publish_date = db.Column(db.Date)
+    release_date = db.Column(db.Date)
 
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
     artist = db.relationship('Artist', back_populates='songs')

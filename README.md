@@ -1,3 +1,3 @@
 # My Project
 
-Add project description here.
+I created a songs app that keeps track of artists, songs, and albums.
